@@ -18,7 +18,7 @@ public class Liked implements Serializable {
     @ManyToOne
     @JoinColumn(
             nullable = false,
-            name = "user_id"
+            name = "project_id"
     )
     private Project project;
 
