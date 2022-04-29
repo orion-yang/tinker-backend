@@ -50,4 +50,10 @@ public class LikedService {
         likedRepo.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    public ResponseEntity<?> deleteAllByProject(Long project_id) {
+        Project project = projectService.findById(project_id);
+        likedRepo.deleteAllByProject(project);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

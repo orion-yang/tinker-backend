@@ -25,13 +25,13 @@ public class LikedController {
         return new ResponseEntity<>(liked, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{user_id}")
+    @GetMapping("/find/user/{user_id}")
     public ResponseEntity<List<Liked>> findAllByUserId(@PathVariable("user_id") Long id) {
         List<Liked> liked = likedService.findAllByUser(id);
         return new ResponseEntity<>(liked, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{project_id}")
+    @GetMapping("/find/project/{project_id}")
     public ResponseEntity<List<Liked>> findAllByProjectId(@PathVariable("project_id") Long id) {
         List<Liked> liked = likedService.findAllByProject(id);
         return new ResponseEntity<>(liked, HttpStatus.OK);
@@ -40,6 +40,12 @@ public class LikedController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteById(@PathVariable("id") Long id) {
         likedService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete-by-project/{project_id}")
+    public ResponseEntity<?> deleteAllByProject(@PathVariable("project_id") Long id) {
+        likedService.deleteAllByProject(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

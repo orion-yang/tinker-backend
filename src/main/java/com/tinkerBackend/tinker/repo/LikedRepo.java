@@ -13,4 +13,6 @@ public interface LikedRepo extends JpaRepository<Liked, Long> {
     List<Liked> findAllByUser(User user);
 
     List<Liked> findAllByProject(Project project);
+
+    void deleteAllByProject(Project project);
 }

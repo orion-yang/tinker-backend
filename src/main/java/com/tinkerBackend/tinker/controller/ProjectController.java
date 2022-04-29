@@ -45,7 +45,7 @@ public class ProjectController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Project> updateUser(@RequestBody Project project) {
+    public ResponseEntity<Project> updateProject(@RequestBody Project project) {
         Project updateProject = projectService.updateProject(project);
         return new ResponseEntity<>(updateProject, HttpStatus.OK);
     }
